@@ -2,7 +2,9 @@
  * Day 3 (Order) Learning Outcomes
  *  - Interactive I/O
  *  - define vs const string
+ *  - std::find
  *  - escape character
+ *  - stoi
  */
 #include <algorithm>
 #include <iostream>
