@@ -1,0 +1,9 @@
+# Ignore all
+*
+!.gitignore
+
+# Unignore all with extensions
+!*.cpp
+
+# Unignore all dirs
+!*/
