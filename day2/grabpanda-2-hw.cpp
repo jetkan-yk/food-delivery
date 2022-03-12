@@ -1,9 +1,8 @@
 /**
- * Day 2 (Browse) Learning Outcomes
- *  - std::unordered_map, std::vector, std::string
- *  - typedef, define
- *  - auto, first, second
+ * Day 2 (Browse) Homework
+ *  - Sort all restaurant's menu before printing
  */
+#include <algorithm>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -50,6 +49,8 @@ int main() {
                 vector<string> menu = entry.second;
 
                 cout << restaurant << endl;
+                // Sort all item in the menu
+                sort(menu.begin(), menu.end());
                 // Print all item in the menu
                 for (string item : menu) {
                     cout << BULLET << item << endl;
