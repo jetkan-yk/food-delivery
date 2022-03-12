@@ -1,10 +1,11 @@
 /**
  * Day 2 (Browse) Homework
- *  - Sort all restaurant's menu before printing
+ *  - Print all restaurant in ascending order
+ *  - Print all item in each restaurant menu in ascending order
  */
 #include <algorithm>
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include <vector>
 using namespace std;
 
@@ -16,7 +17,7 @@ typedef vector<string> vs;
 
 int main() {
     // Initialize database
-    unordered_map<string, vs> all_menu;
+    map<string, vs> all_menu;
     all_menu["McDonalds"] = vs{"McChicken", "Filet-O-Fish", "Big Mac", "McSpicy"};
     all_menu["Ya Kun"] = vs{"Kopi", "Teh", "Kaya Butter Toast"};
     all_menu["Starbucks"] = vs{"Espresso", "Frappuccino", "Cold Brew", "Tea Latte"};
