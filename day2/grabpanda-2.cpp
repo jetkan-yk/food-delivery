@@ -1,7 +1,8 @@
 /**
- * Day 1 (Frontend) Homework
- *  - Ask for username after welcome message
- *  - Show username at the beginning of user input line
+ * Day 2 (Query) Learning Outcomes
+ *  - 
+ *  -
+ *  -
  */
 #include <iostream>
 using namespace std;
@@ -16,8 +17,8 @@ int main() {
 
     // Get username
     cout << "Enter username: ";
-    string name;
-    getline(cin, name);
+    string username;
+    getline(cin, username);
     cout << endl;
 
     // Repeat this loop until the program terminates
@@ -25,7 +26,7 @@ int main() {
         // Get user input
         cout << "What would you like to do today?" << endl
              << "[browse / order / status / exit]" << endl
-             << " " + name + INPUT;
+             << " " + username + INPUT;
         string user_input;
         getline(cin, user_input);
 
