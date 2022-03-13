@@ -1,9 +1,9 @@
 /**
  * Day 4 (Status) Learning Outcomes
- *  -
- *  -
- *  -
- *  -
+ *  - std::map of std::map
+ *  - check item exist before updating map
+ *  - rand() and modulo
+ *  - to_string()
  */
 #include <algorithm>
 #include <iostream>
@@ -23,6 +23,16 @@ int main() {
     all_menu["McDonalds"] = vs{"McChicken", "Filet-O-Fish", "Big Mac", "McSpicy"};
     all_menu["Ya Kun"] = vs{"Kopi", "Teh", "Kaya Butter Toast"};
     all_menu["Starbucks"] = vs{"Espresso", "Frappuccino", "Cold Brew", "Tea Latte"};
+
+    map<string, map<string, int>> cart;
+    unordered_map<string, int> eta;
+    // cart["Starbucks"] = map<string, int>();
+    // cart["Starbucks"]["Espresso"] = 2;
+    // cart["Starbucks"]["Cold Brew"] = 1;
+    // eta["Starbucks"] = 22;
+    // cart["McDonalds"] = map<string, int>();
+    // cart["McDonalds"]["McSpicy"] = 3;
+    // eta["McDonalds"] = 33;
 
     // Show a welcome message
     cout << "              WELCOME TO GRABPANDA!\n"
@@ -49,9 +59,9 @@ int main() {
         string result;
         if (user_input == "browse") {
             // Loop each restaurant->menu entry from database
-            for (auto entry : all_menu) {
-                string restaurant = entry.first;
-                vector<string> menu = entry.second;
+            for (auto& am : all_menu) {
+                string restaurant = am.first;
+                vector<string> menu = am.second;
 
                 cout << restaurant << endl;
                 // Sort all item in the menu
@@ -68,8 +78,8 @@ int main() {
             cout << "Which restaurant would you like to order from?" << endl;
             // Get available options
             vs options;
-            for (auto entry : all_menu) {
-                options.push_back(entry.first);
+            for (auto& am : all_menu) {
+                options.push_back(am.first);
             }
             // Show options
             cout << "[";
@@ -118,15 +128,56 @@ int main() {
                         // Invalid quantity number
                         result = "Invalid quantity: " + quantity_str;
                     } else {
+                        // Update cart
+                        if (cart.find(restaurant) == cart.end()) {
+                            // Create new restaurant in cart
+                            cart[restaurant] = map<string, int>();
+                            cart[restaurant][item] = quantity;
+                        } else {
+                            // Restaurant already exist in cart
+                            if (cart[restaurant].find(item) == cart[restaurant].end()) {
+                                // Create new item in order
+                                cart[restaurant][item] = quantity;
+                            } else {
+                                // Item already exist in order
+                                cart[restaurant][item] += quantity;
+                            }
+                        }
+
+                        // Update ETA
+                        if (eta.find(restaurant) == eta.end()) {
+                            // Create new restaurant in eta
+                            eta[restaurant] = 10 + rand() % 50;
+                        } else {
+                            // Update restaurant eta
+                            eta[restaurant] += 1 + rand() % 5;
+                        }
+
                         // Show confirmation message
-                        result = "Order confirmed: " + restaurant + " - " + item + " (" + quantity_str + ")";
+                        result = "Order confirmed: " + restaurant + " - " + item + " (" + to_string(cart[restaurant][item]) + ").";
+                        result += " ETA " + to_string(eta[restaurant]) + " mins";
                     }
                 }
             }
         } else if (user_input == "status") {
-            result = "Execute status...";
+            // Loop each restaurant->order entry from database
+            for (auto& c : cart) {
+                string restaurant = c.first;
+                auto& order = c.second;
+
+                cout << restaurant << " ETA " << eta[restaurant] << " mins" << endl;
+                // Print all item in the order
+                for (auto& o : order) {
+                    string item = o.first;
+                    int quantity = o.second;
+
+                    cout << BULLET << item << " (" << quantity << ")" << endl;
+                }
+                cout << endl;
+            }
+            result = "All status displayed.";
         } else if (user_input == "exit") {
-            result = "Execute exit...";
+            exit(0);
         } else {
             result = "Invalid command: " + user_input;
         }
