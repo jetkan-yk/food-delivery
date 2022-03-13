@@ -1,4 +1,5 @@
 /**
+ * Copyright @ 2022 Ripple Group Holdings Pte Ltd | www.ripplecreate.com
  * Day 3 (Order) Learning Outcomes
  *  - Interactive I/O
  *  - define vs const string

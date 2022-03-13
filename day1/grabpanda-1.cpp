@@ -1,4 +1,5 @@
 /**
+ * Copyright @ 2022 Ripple Group Holdings Pte Ltd | www.ripplecreate.com
  * Day 1 (Frontend) Learning Outcomes
  *  - CLI application
  *  - While & If loop

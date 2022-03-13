@@ -1,4 +1,5 @@
 /**
+ * Copyright @ 2022 Ripple Group Holdings Pte Ltd | www.ripplecreate.com
  * Day 1 (Frontend) Homework
  *  - Ask for username after welcome message
  *  - Show username at the beginning of user input line

@@ -1,4 +1,5 @@
 /**
+ * Copyright @ 2022 Ripple Group Holdings Pte Ltd | www.ripplecreate.com
  * Day 2 (Browse) Learning Outcomes
  *  - std::unordered_map, std::vector, std::string
  *  - typedef, define
