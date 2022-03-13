@@ -7,3 +7,13 @@
 - Please contact me via email: jetkan.yk@gmail.com if you found any bugs. Thank you.
 
 Copyright @ 2022 Ripple Group Holdings Pte Ltd | www.ripplecreate.com
+
+## Features
+
+### Login as user
+
+### Browse menu
+
+### Make order
+
+### Show status
