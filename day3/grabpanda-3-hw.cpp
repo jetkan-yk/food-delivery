@@ -46,9 +46,9 @@ int main() {
         string result;
         if (user_input == "browse") {
             // Loop each restaurant->menu entry from database
-            for (auto entry : all_menu) {
-                string restaurant = entry.first;
-                vector<string> menu = entry.second;
+            for (auto& am : all_menu) {
+                string restaurant = am.first;
+                vector<string> menu = am.second;
 
                 cout << restaurant << endl;
                 // Sort all item in the menu
@@ -65,8 +65,8 @@ int main() {
             cout << "Which restaurant would you like to order from?" << endl;
             // Get available options
             vs options;
-            for (auto entry : all_menu) {
-                options.push_back(entry.first);
+            for (auto& am : all_menu) {
+                options.push_back(am.first);
             }
             // Show options
             cout << "[";

@@ -50,9 +50,9 @@ int main() {
         string result;
         if (user_input == "browse") {
             // Loop each restaurant->menu entry from database
-            for (auto entry : all_menu) {
-                string restaurant = entry.first;
-                vector<string> menu = entry.second;
+            for (auto& am : all_menu) {
+                string restaurant = am.first;
+                vector<string> menu = am.second;
 
                 cout << restaurant << endl;
                 // Sort all item in the menu
